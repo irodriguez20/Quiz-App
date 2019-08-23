@@ -5,9 +5,10 @@
 body {
  margin: 0;
  padding: 0;
- font-family: 'Hepta Slab', serif;
- background: url('/Users/indiarodriguez/Thinkful N&W/Quiz App/Quiz App images/GOT-map.jpg') fixed;
+ font-family: 'Julius Sans One', sans-serif;
+ background: url('https://awoiaf.westeros.org/images/thumb/f/f6/Agot_hbo_guide_map.jpg/1599px-Agot_hbo_guide_map.jpg') fixed;
 }
+
 
 header {
     display: flex;
@@ -47,6 +48,7 @@ main {
     flex-direction: column;
     align-items: center;
     margin-top: 5px;
+    flex-wrap: wrap;
 }
 
 .intro {
@@ -59,10 +61,25 @@ main {
     font-weight: normal;
 }
 
+.intro .background {
+ margin: 30px;
+ background: rgba(171, 205, 239, 0.3); /* Blue background with 30% opacity */
+ border-radius: 3px;
+ filter: alpha(opacity=60); /* For IE8 and earlier */
+}
+
+.background h1 {
+    margin: 5%;
+    font-weight: bolder;
+    opacity: default;
+    color: rgb(78, 7, 7);  
+}
+
 button {
     border: black;
     background-color: rgb(78, 7, 7);
     color: aliceblue;
+    font-family: 'Julius Sans One', sans-serif;
     font-size: 20px;
     text-transform: uppercase;
     border-radius: 3px;
