@@ -1,0 +1,123 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+ margin: 0;
+ padding: 0;
+ font-family: 'Hepta Slab', serif;
+ background: url('/Users/indiarodriguez/Thinkful N&W/Quiz App/Quiz App images/GOT-map.jpg') fixed;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 30px 0;
+    color: aliceblue;
+}
+
+.got-logo,
+.status {
+    display: flex;
+    justify-content: flex-end;
+    float: left;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+
+.logo {
+    width: 200px;
+    height: 125px;
+    border-radius: 3px;
+}
+
+header ul li {
+    list-style: none;
+    text-align: center;
+    font-size: 30px;
+    padding: 15px 20px;
+    display: inline;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.intro {
+    border: none;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 20px;
+    color: rgb(253, 253, 252);
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+button {
+    border: black;
+    background-color: rgb(78, 7, 7);
+    color: aliceblue;
+    font-size: 20px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 40px;
+}
+
+button:hover, button:focus {
+    background-color: rgb(11, 77, 97);
+    color: rgb(180, 159, 66);
+}
+
+/*
+.quiz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+*/
+@media screen and (min-width: 600px) {
+
+    header {
+     justify-content: space-evenly;
+     padding: 10px;
+     background: purple;
+   }
+    
+
+  
+    
+  }
+
+  @media screen and (min-width: 780px) {
+
+    header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      padding: 10px;
+      background: orange;
+    }
+   
+    .got-logo,
+    .status {
+      display: flex;
+      align-items: center;
+      list-style: none;
+    }
+
+    main {
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 5px;
+    }
+      
+   }
