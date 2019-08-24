@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Questions and Answers</title>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="questions">
+    <h2>questionNumber + question</h2>
+    <form>
+    <fieldset>
+    <label class="answerOption">
+    <input type="radio" value="question number answers [0]" name="answer" required>
+    <span>[questionNumber].answers[0]</span>
+    </label>
+    <label class="answerOption">
+    <input type="radio" value="question number answers [1]" name="answer" required>
+    <span>[questionNumber].answers[0]</span>
+    </label>
+    <label class="answerOption">
+    <input type="radio" value="question number answers [2]" name="answer" required>
+    <span>[questionNumber].answers[0]</span>
+    </label>
+    <label class="answerOption">
+    <input type="radio" value="question number answers[3]" name="answer" required>
+    <span>[questionNumber].answers[0]</span>
+    </label>
+    <button type="submit" class="submitButton">Submit</button>
+    </fieldset>
+    </form>
+    </div>
+
+<div class ="answerIncorrect">
+    <p>You got it wrong.<br>The correct answer is <span>Correct Answer</span></p>
+    <button type="button" class="nextButton">
+        <a href="index.html">Continue</a>
+    </button>
+</div>
+
+
+<div class="answerCorrect">
+    <p>That's correct!</p>
+    <button type="button" class="nextButton">
+        <a href="index.html">Continue</a>
+    </button>
+</div>
+</body>
+</html>
