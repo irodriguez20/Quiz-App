@@ -6,7 +6,9 @@ body {
  margin: 0;
  padding: 0;
  font-family: 'Julius Sans One', sans-serif;
+ background-color: peachpuff;
  background: url('https://awoiaf.westeros.org/images/thumb/f/f6/Agot_hbo_guide_map.jpg/1599px-Agot_hbo_guide_map.jpg') fixed;
+ color: gray;
 }
 
 
@@ -61,23 +63,24 @@ main {
     font-weight: normal;
 }
 
-.intro .background {
+main .background {
  margin: 30px;
- background: rgba(171, 205, 239, 0.3); /* Blue background with 30% opacity */
+ background: rgba(191, 162, 178, 0.726); /* Blue background with 30% opacity */
  border-radius: 3px;
  filter: alpha(opacity=60); /* For IE8 and earlier */
 }
 
-.background h1 {
+.background {
     margin: 5%;
     font-weight: bolder;
     opacity: default;
-    color: rgb(78, 7, 7);  
+    color: #ffffff;  
 }
 
 button {
+    padding: 10px;
     border: black;
-    background-color: rgb(78, 7, 7);
+    background-color: rgba(89, 29, 40, 1);
     color: aliceblue;
     font-family: 'Julius Sans One', sans-serif;
     font-size: 20px;
@@ -90,38 +93,164 @@ button {
 
 button:hover, button:focus {
     background-color: rgb(11, 77, 97);
-    color: rgb(180, 159, 66);
 }
 
-/*
+main div {
+    margin: 0 auto;
+}
 .quiz {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
 }
-*/
+
+label:nth-child(1) {
+    background-color: rgba(122, 77, 18, 0.822);
+}
+
+label:nth-child(2) {
+    background-color: rgba(168, 114, 44, 0.815);
+}
+
+label:nth-child(3) {
+    background-color: rgba(226, 163, 81, 0.774);
+}
+
+label:nth-child(4) {
+    background-color: rgba(240, 198, 143, 0.801);
+}
+label {
+    display: flex;
+    padding: 20px;
+    margin-bottom: 10px;
+    color: aliceblue;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    line-height: 22px;
+}
+label:hover, label:focus {
+    background-color: rgba(140, 50, 66, 0.856);
+}
+
+fieldset {
+    border: none;
+}
+
+input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ffffff;
+    transition: 0.2s all linear;
+    outline: none;
+    margin-right: 5px;
+    position: relative;
+    top: 2px;
+}
+input:checked {
+    border: 8px solid rgb(73, 2, 6);
+}
+input[type=radio] {
+    flex: 0 0 auto;
+    margin-right: 10px;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #ffffff;
+    font-display: bolder; 
+}
+form button {
+    padding: 10px;
+    border: black;
+    background-color: rgba(89, 29, 40, 1);
+    color: aliceblue;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 40px;
+}
+form button:hover, form button:focus {
+    background-color: rgb(11, 77, 97);
+}
+.answer {
+    flex: 1 1 auto;
+}
+.quizForm {
+    display: none;
+    width: 50%;
+}
+.correctFeedback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+}
+.correctFeedback button {
+    text-align: center;
+}
+.correctFeedback p {
+    font-size: 1.5em;
+    line-height: 1.5em;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.correctFeedback .container {
+    display: flex;
+    flex-direction: column;
+    background-color:  rgba(73, 108, 119, 0.911); 
+    text-align: center;
+    border: none;
+    border-radius: 3px;
+}
+.correctFeedback span {
+    color: #ffffff;
+}
+h3 {
+    color: rgb(87, 23, 23);
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+.results p:first-of-type {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+.results p {
+    font-size: 30px;
+    font-display: bolder;
+    line-height: 30px;
+    margin-bottom: 0;
+}
+.restartButton {
+    margin-top: 40px;
+}
+
 @media screen and (min-width: 600px) {
 
     header {
      justify-content: space-evenly;
      padding: 10px;
-     background: purple;
    }
     
 
   
     
-  }
+}
 
-  @media screen and (min-width: 780px) {
+@media screen and (min-width: 780px) {
 
     header {
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
       padding: 10px;
-      background: orange;
     }
    
     .got-logo,
@@ -138,3 +267,18 @@ button:hover, button:focus {
     }
       
    }
+
+
+   /* Color Theme Swatches in Hex 
+.Ignant-1-hex { color: #591D28; }
+.Ignant-2-hex { color: #8C3243; }
+.Ignant-3-hex { color: #BFA3B2; }
+.Ignant-4-hex { color: #F2C8C4; }
+.Ignant-5-hex { color: #0D0D0D; }
+
+   Color Theme Swatches in RGBA */
+.Ignant-1-rgba { color: rgba(89, 29, 40, 1); }
+.Ignant-2-rgba { color: rgba(140, 50, 66, 1); }
+.Ignant-3-rgba { color: rgba(191, 162, 178, 1); }
+.Ignant-4-rgba { color: rgba(242, 200, 196, 1); }
+.Ignant-5-rgba { color: rgba(12, 12, 12, 1); }

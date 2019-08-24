@@ -101,3 +101,158 @@ const STORE = [
         correctAnswer: 'Never forget what you are. The rest of the world will not. Wear it like armor & it can never be used to hurt you.'
     }
 ];
+
+
+let questionNumber = 0;
+let score = 0;
+
+
+//generate question
+function generateQuestion () {
+    if (questionNumber < STORE.length) {
+        return `<div class="question-${questionNumber}">
+        <h2>${STORE[questionNumber].question}</h2>
+        <form>
+        <fieldset>
+        <label class="answerOption">
+        <input type="radio" value="${STORE[questionNumber].answers[0]}" name="answer" required>
+        <span>${STORE[questionNumber].answers[0]}</span>
+        </label>
+        <label class="answerOption">
+        <input type="radio" value="${STORE[questionNumber].answers[1]}" name="answer" required>
+        <span>${STORE[questionNumber].answers[1]}</span>
+        </label>
+        <label class="answerOption">
+        <input type="radio" value="${STORE[questionNumber].answers[2]}" name="answer" required>
+        <span>${STORE[questionNumber].answers[2]}</span>
+        </label>
+        <label class="answerOption">
+        <input type="radio" value="${STORE[questionNumber].answers[3]}" name="answer" required>
+        <span>${STORE[questionNumber].answers[3]}</span>
+        </label>
+        <button type="submit" class="submitButton">Submit</button>
+        </fieldset>
+        </form>
+        </div>`;
+    } else {
+        renderResults();
+        restartQuiz();
+        $('.questionNumber').text(10);
+    }
+}
+
+
+function changeQuestionNumber() {
+    questionNumber ++;
+    $('.questionNumber').text(questionNumber+1);
+}
+
+function changeScore() {
+    score ++;
+}
+
+function startQuiz() {
+    $('.intro').on('click', '.startButton', function (event){
+        $('.intro').remove();
+        $('.quizForm').css('display', 'block');
+        $('.questionNumber').text(1);
+    });
+}
+
+function renderQuestion() {
+    $('.quizForm').html(generateQuestion());
+}
+
+function userPickAnswer() {
+    $('form').on('submit', function(event) {
+        event.preventDefault();
+        let selected = $('input:checked');
+        let answer = selected.val();
+        let correctAnswer = `${STORE[questionNumber].correctAnswer}`;
+        if (answer === correctAnswer) {
+            selected.parent().addClass('correct');
+            answerCorrect();
+        } else {
+            selected.parent().addClass('wrong');
+            answerWrong();
+        }
+    });
+}
+
+function answerCorrect() {
+    feedbackCorrectAnswer();
+    updateScore();
+}
+
+function answerWrong() {
+    feedbackWrongAnswer();
+}
+
+
+
+function feedbackCorrectAnswer() {
+    let correctAnswer = `${STORE[questionNumber].correctAnswer}`;
+    $('.quizForm').html(`<div class="correctFeedback"><p>That's correct!</p>
+    <button type="button" class="nextButton">Continue</button></div>`);
+}
+
+function feedbackWrongAnswer() {
+    let correctAnswer = `${STORE[questionNumber].correctAnswer}`;
+    $('.quizForm').html(`<div class ="correctFeedback">
+    <p>You got it wrong.<br>The correct answer is:<br><p>
+    <div class='container'> 
+    <p><span>"${correctAnswer}"</span></p>
+    </div>
+    <button type="button" class="nextButton">Continue</button></div>`);
+}
+
+function updateScore() {
+    changeScore();
+    $('.score').text(score);
+}
+
+function renderResults() {
+    if (score >= 7) {
+        $('.quizForm').html(`<div class="results correctFeedback">
+        <h3>You belong in Westeros!</h3>
+        <p>You got ${score}/10</p>
+        <button type='reset' class='resetButton'>Restart Quiz</button></div>`);
+    } else if (score < 7 && score >= 5) {
+        $('.quizForm').html(`<div class="results correctFeedback">
+        <h3>You're so close!</h3>
+        <p>You got ${score}/10</p>
+        <p>You could pass after a quick recap.</p>
+        <button type='reset' class='resetButton'>Restart Quiz</button></div>`);
+    } else {
+        $('.quizForm').html(`<div class="results correctFeedback">
+        <h3>You've got some binging to do!</h3>
+        <p>You got ${score}/10</p>
+        <button type='reset' class='resetButton'>Restart Quiz</button></div>`);
+    }
+}
+
+
+function renderNextQuestion() {
+    $('main').on('click', '.nextButton', function(event) {
+        changeQuestionNumber();
+        renderQuestion();
+        userPickAnswer();
+    });
+}
+
+
+function restartQuiz() {
+    $('main').on('click', '.resetButton', function(event) {
+        location.reload();
+    });
+}
+
+
+function createQuiz() {
+    startQuiz();
+    renderQuestion();
+    userPickAnswer();
+    renderNextQuestion();
+}
+
+$(createQuiz);
